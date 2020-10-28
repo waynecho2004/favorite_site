@@ -19,9 +19,12 @@ mongoose.connect(
 );
 
 // MIDDLEWARE
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 // Import controllers
-app.use('/webs', require('./controllers/webController'));
+app.use('/web', require('./controllers/webController'));
 
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
