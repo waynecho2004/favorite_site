@@ -20,6 +20,15 @@ mongoose.connect(
 
 // MIDDLEWARE
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+/**
+ * express.urlencoded([options]) 
+ * extended:  This option allows to choose between parsing the URL-encoded data 
+ * with the querystring library (when false) or the qs library (when true). 
+ * The “extended” syntax allows for rich objects and arrays to be encoded into 
+ * the URL-encoded format, allowing for a JSON-like experience with URL-encoded. 
+ * For more information, please see the qs library.     
+ */
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // static files: tells express to try to match requests with files in the directory called 'public'
