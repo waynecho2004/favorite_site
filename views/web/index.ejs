@@ -1,0 +1,8 @@
+<h1>All Web Related Links</h1>
+<ul>
+    <% for( let i = 0; i < data.length; i++ ) { %>
+        <li>
+            <a href="/web/<%=data[i].id%>"><%=data[i].name%></a>
+        </li>
+    <% } %>
+</ul>

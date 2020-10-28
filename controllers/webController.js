@@ -6,7 +6,14 @@ const router = require('express').Router();
 // You can replace above two line with below line
 const { Web, Url } = require('../models/web')
 
-// TODO: create routes
+// Index
+router.get('/', (req, res) => {
+    Web.find({}, (error, data) => {
+      res.render('web/index.ejs', {
+        data,
+      })
+    })
+  })
 
 // New Form to enter a web component - html, css, js, etc.
 router.get('/new', (req, res) => {
@@ -20,5 +27,8 @@ router.post('/', (req, res) => {
         res.send(data);
     })
 })
+
+
+
 
 module.exports = router;
