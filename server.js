@@ -22,6 +22,8 @@ mongoose.connect(
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+// static files: tells express to try to match requests with files in the directory called 'public'
+app.use(express.static('public'));
 
 // Import controllers
 app.use('/web', require('./controllers/webController'));
