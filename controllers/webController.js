@@ -6,6 +6,9 @@ const router = require('express').Router();
 // You can replace above two line with below line
 const { Web, Url } = require('../models/web')
 
+// Seed data if needed
+const seed = require('../models/web-seed');
+
 // Index
 router.get('/', (req, res) => {
     Web.find({}, (error, data) => {
@@ -19,6 +22,21 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
     res.render('web/new.ejs');
 })
+
+// Get all record in json format
+router.get('/getData', (req, res) => {
+    Web.find({}, (error, allRecords) => {
+        res.send(allRecords);
+    });
+});
+
+// Backup with seed data
+router.get('/seed', (req, res)=>{
+    Web.create(seed, (err, data)=>{
+        res.redirect('/web');
+    });
+  });
+
 
 // Add Empty Form to show page to add new url
 router.get('/:id', (req, res) => {
