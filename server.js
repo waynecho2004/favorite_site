@@ -37,6 +37,16 @@ app.use(express.static('public'));
 // Import controllers
 app.use('/web', require('./controllers/webController'));
 
+// Hide Form
+function addLink() {
+  var x = document.getElementById("newlinkForm");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 })

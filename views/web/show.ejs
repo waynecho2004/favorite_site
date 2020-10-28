@@ -1,6 +1,9 @@
-<h3><%= data.name %></h3>
-<h4>Create a New Link</h4>
-<form action="/web/<%= data.id %>/urls" method="POST">
+<h4><%= data.name %> Favorite Links</h4>
+<a class="btn btn-primary" data-toggle="collapse" href="#newlinkForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+  Add New Link
+</a>
+
+<form class="collapse" id='newlinkForm' action="/web/<%= data.id %>/urls" method="POST">
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" name="title" />
@@ -11,7 +14,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<h4>Favorite Links</h4>
+
 <ul>
     <% data.urls.forEach(url => { %>
     <li>
